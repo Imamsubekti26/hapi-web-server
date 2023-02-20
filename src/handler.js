@@ -62,11 +62,38 @@ const addBookHandler = (request, h) => {
 
 /**
  * getAllBookHandler untuk mengirim semua data buku
+ * @param {*} request menerima request dari client
+ * @param {*} h inisialisasi dari hapi untuk selanjutnya digunakan untuk membuat response
  * @returns response
  */
-const getAllBookHandler = () => {
+const getAllBookHandler = (request, h) => {
+  // ambil data dari query url
+  const { name, reading, finished } = request.query
+
+  // siapkan data buku
+  let filtered = books
+
+  // filter name
+  if (name) {
+    filtered = filtered.filter(val => val.name.toLowerCase().includes(name.toLowerCase()))
+  }
+
+  // filter reading
+  if (reading === '0') {
+    filtered = filtered.filter(val => val.reading === false)
+  } else if (reading === '1') {
+    filtered = filtered.filter(val => val.reading === true)
+  }
+
+  // filter finished
+  if (finished === '0') {
+    filtered = filtered.filter(val => val.finished === false)
+  } else if (finished === '1') {
+    filtered = filtered.filter(val => val.finished === true)
+  }
+
   // hanya kirimkan data id, name, dan publisher
-  const filteredBook = books.map(({ id, name, publisher }) => {
+  const filteredBook = filtered.map(({ id, name, publisher }) => {
     return { id, name, publisher }
   })
 
