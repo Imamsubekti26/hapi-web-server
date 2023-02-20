@@ -1,0 +1,34 @@
+{
+  "name": "hapi-web-server",
+  "version": "1.0.0",
+  "description": "pembuatan web server backend menggunakan nodejs dan framework hapi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "lint": "eslint ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imamsubekti26/hapi-web-server.git"
+  },
+  "keywords": [],
+  "author": "Imam Subekti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Imamsubekti26/hapi-web-server/issues"
+  },
+  "homepage": "https://github.com/Imamsubekti26/hapi-web-server#readme",
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.0",
+    "nanoid": "^3.3.4"
+  }
+}
